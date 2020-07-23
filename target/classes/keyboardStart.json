@@ -1,0 +1,30 @@
+{
+  "one_time": false,
+  "buttons": [
+    [{
+      "action": {
+        "type": "text",
+        "payload": "{\"button\": \"1\"}",
+        "label": "Акции"
+      },
+      "color": "primary"
+    },
+      {
+        "action": {
+          "type": "text",
+          "payload": "{\"button\": \"2\"}",
+          "label": "Доставка"
+        },
+        "color": "positive"
+      }],
+      [{
+        "action": {
+          "type": "text",
+          "payload": "{\"button\": \"2\"}",
+          "label": "Заказать"
+        },
+        "color": "negative"
+      }
+    ]
+  ]
+}
