@@ -5,21 +5,20 @@ import core.commands.Unknown;
 
 import java.util.Collection;
 
-/**
- * Определяет команду
- *
- * @author Артур Куприянов
- * @version 1.1.0
- */
+
 public class CommandDeterminant {
 
 
     public static Command getCommand(Collection<Command> commands, Message message) {
         String body = message.getText();
+        body = body.toLowerCase();
+        body = body.replace("\n","");
 
-        for (Command command : commands
-        ) {
+
+        for (Command command : commands) {
+
                 if (command.name.equals(body.split(" ")[0])) {
+
                     return command;
                 }
         }

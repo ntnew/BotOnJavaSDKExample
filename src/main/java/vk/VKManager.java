@@ -5,6 +5,8 @@ import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.queries.messages.MessagesSendQuery;
 
+import java.util.Calendar;
+
 import static core.modules.RandomId.setRandomId;
 
 /**
@@ -32,6 +34,23 @@ public class VKManager {
             e.printStackTrace();
         }
     }
+    public void sendUnknownMessage(String msg, int peerId){
+        Calendar calendar = Calendar.getInstance();
+
+
+        if (msg == null){
+            System.out.println("null");
+            return;
+        }
+        try {
+            vkCore.getVk().messages().send(vkCore.getActor()).peerId(peerId)
+                    .randomId(peerId+calendar.get(Calendar.DAY_OF_MONTH)+calendar.get(Calendar.MONTH)).message(msg).execute();
+            System.out.println(peerId+calendar.get(Calendar.DAY_OF_MONTH)+calendar.get(Calendar.MONTH));
+        } catch (ApiException | ClientException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public MessagesSendQuery getSendQuery(){
         return vkCore.getVk().messages().send(vkCore.getActor());

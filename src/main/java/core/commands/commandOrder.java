@@ -12,15 +12,12 @@ public class commandOrder extends Command {
     }
 
     private String getStartMessage(){
-        String fileName = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\startPage.txt";
+        String fileName = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\order.txt";
         return Reader.readTxtFile(fileName);
     }
 
     @Override
     public void exec(Message message) {
-        String filename = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\keyboardOrders.json";
-        new VKManager().sendMessage("Выбирай", message.getFromId());
-        new Send().sendKeyboard(filename, message.getFromId());
-
+        new VKManager().sendMessage(getStartMessage(), message.getFromId());
     }
 }

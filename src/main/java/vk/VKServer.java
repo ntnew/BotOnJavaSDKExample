@@ -4,6 +4,9 @@ package vk;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.messages.Message;
+import core.CommandManager;
+import core.commands.Begin;
+import core.modules.Reader;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,12 +14,14 @@ import java.util.concurrent.Executors;
 public class VKServer {
     public static VKCore vkCore;
 
+
     static {
         try {
             vkCore = new VKCore();
         } catch (ApiException | ClientException e) {
             e.printStackTrace();
         }
+
     }
 
     public static void main(String[] args) throws NullPointerException, ApiException, InterruptedException {
@@ -39,8 +44,7 @@ public class VKServer {
                 Thread.sleep(RECONNECT_TIME);
 
             }
-            String json= "";
-            //System.out.println(vkCore.getMarket());
+
         }
     }
 }

@@ -12,15 +12,15 @@ public class orderPizza extends Command {
     }
 
     private String getStartMessage(){
-        String fileName = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\startPage.txt";
+        String fileName = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\delivery.txt";
         return Reader.readTxtFile(fileName);
     }
 
     @Override
     public void exec(Message message) {
-        String filename = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\keyboardPizza.json";
-        //new VKManager().sendMessage(getStartMessage(), message.getUserId());
-        new Send().sendKeyboard(filename, message.getFromId());
+        //String filename = "C:\\Users\\Ahab\\BotOnJavaSDKExample\\src\\main\\resources\\keyboardPizza.json";
+        new VKManager().sendMessage(getStartMessage(), message.getFromId());
+        //new Send().sendKeyboard(filename, message.getFromId());
 
     }
 }
